@@ -4,8 +4,12 @@
   <img src="demo-preview.png" alt="Kawaii AI Theme Engine Preview" width="800">
 </p>
 
+<h3 align="center">🎮 <a href="https://watermelontip.github.io/Kawaii-AI-Theme-Engine/">👉 点击这里在线体验 👈</a></h3>
+
 <p align="center">
-  <strong>🎮 在线体验：<a href="https://watermelontip.github.io/Kawaii-AI-Theme-Engine/">watermelontip.github.io/Kawaii-AI-Theme-Engine</a></strong>
+  <a href="https://watermelontip.github.io/Kawaii-AI-Theme-Engine/"><img src="https://img.shields.io/badge/Live_Demo-GitHub_Pages-blue?style=for-the-badge&logo=github" alt="Live Demo"></a>
+  <a href="https://github.com/watermelontip/Kawaii-AI-Theme-Engine"><img src="https://img.shields.io/badge/Source_Code-GitHub-black?style=for-the-badge&logo=github" alt="Source Code"></a>
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License">
 </p>
 
 ---
@@ -43,7 +47,7 @@ Kawaii-AI-Theme-Engine/
 
 ### 方式一：在线体验
 
-直接访问 👉 **https://watermelontip.github.io/Kawaii-AI-Theme-Engine/**
+👉 **https://watermelontip.github.io/Kawaii-AI-Theme-Engine/**
 
 ### 方式二：本地运行
 
@@ -214,4 +218,6 @@ MIT License
 
 ---
 
-✨ 让每个页面都充满可爱的随机惊喜！✨
+<p align="center">
+  <strong>Made with ✨ by <a href="https://github.com/watermelontip">watermelontip</a></strong>
+</p>
