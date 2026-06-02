@@ -1,0 +1,21 @@
+{
+  "name": "kawaii-ai-theme-engine",
+  "version": "1.0.0",
+  "description": "一个基于随机化的 AI 卡哇伊风格页面主题美化引擎",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "kawaii",
+    "theme",
+    "ai",
+    "randomizer"
+  ],
+  "author": "Ren",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}

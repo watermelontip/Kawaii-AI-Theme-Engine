@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kawaii AI Theme Engine ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;800&family=Fredoka+One&family=Nunito:wght@400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Base styles using CSS variables */
+    :root {
+      --kawaii-color-primary: #ff69b4;
+      --kawaii-color-secondary: #9b59b6;
+      --kawaii-color-background: #fff0f5;
+      --kawaii-color-surface: #ffffff;
+      --kawaii-color-text: #333333;
+      --kawaii-color-text-secondary: #666666;
+      --kawaii-color-border: #ffc0cb;
+      --kawaii-color-shadow: rgba(255, 105, 180, 0.2);
+      --kawaii-font-family: 'Nunito', 'Quicksand', sans-serif;
+      --kawaii-font-heading-family: 'Fredoka One', 'Baloo 2', cursive;
+      --kawaii-font-size-base: 16px;
+      --kawaii-font-size-heading: 36px;
+      --kawaii-font-line-height: 1.6;
+      --kawaii-deco-border-radius: 20px;
+      --kawaii-anim-speed: 300ms;
+      --kawaii-anim-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      --kawaii-anim-scale-hover: 1.05;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--kawaii-font-family);
+      font-size: var(--kawaii-font-size-base);
+      line-height: var(--kawaii-font-line-height);
+      background: var(--kawaii-color-background);
+      color: var(--kawaii-color-text);
+      min-height: 100vh;
+      padding: 2rem;
+      transition: all var(--kawaii-anim-speed) ease;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .header h1 {
+      font-family: var(--kawaii-font-heading-family);
+      font-size: var(--kawaii-font-size-heading);
+      background: var(--kawaii-gradient-primary, linear-gradient(135deg, var(--kawaii-color-primary), var(--kawaii-color-secondary)));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .header p {
+      color: var(--kawaii-color-text-secondary);
+      font-size: 1.1rem;
+    }
+
+    /* Control Panel */
+    .control-panel {
+      background: var(--kawaii-color-surface);
+      border: var(--kawaii-deco-border, 2px solid var(--kawaii-color-border));
+      border-radius: var(--kawaii-deco-border-radius);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--kawaii-deco-shadow, 0 4px 15px var(--kawaii-color-shadow));
+      transition: all var(--kawaii-anim-speed) var(--kawaii-anim-bounce);
+    }
+
+    .control-panel:hover {
+      transform: scale(var(--kawaii-anim-scale-hover));
+      box-shadow: 0 8px 25px var(--kawaii-color-shadow);
+    }
+
+    .control-panel h2 {
+      font-family: var(--kawaii-font-heading-family);
+      color: var(--kawaii-color-primary);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: var(--kawaii-deco-border-radius);
+      font-family: var(--kawaii-font-family);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--kawaii-anim-speed) var(--kawaii-anim-bounce);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--kawaii-gradient-primary, var(--kawaii-color-primary));
+      color: white;
+      box-shadow: 0 4px 15px var(--kawaii-color-shadow);
+    }
+
+    .btn-secondary {
+      background: var(--kawaii-color-surface);
+      color: var(--kawaii-color-primary);
+      border: 2px solid var(--kawaii-color-primary);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 25px var(--kawaii-color-shadow);
+    }
+
+    .btn:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    /* Preview Cards */
+    .preview-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: var(--kawaii-color-surface);
+      border: var(--kawaii-deco-border, 2px solid var(--kawaii-color-border));
+      border-radius: var(--kawaii-deco-border-radius);
+      padding: 1.5rem;
+      box-shadow: var(--kawaii-deco-shadow, 0 4px 15px var(--kawaii-color-shadow));
+      transition: all var(--kawaii-anim-speed) var(--kawaii-anim-bounce);
+    }
+
+    .card:hover {
+      transform: translateY(-5px) rotate(var(--kawaii-anim-rotate-hover, 0deg));
+      box-shadow: 0 12px 30px var(--kawaii-color-shadow);
+    }
+
+    .card h3 {
+      font-family: var(--kawaii-font-heading-family);
+      color: var(--kawaii-color-primary);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: var(--kawaii-color-text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    /* Color Palette Display */
+    .color-palette {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .color-swatch {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .color-swatch:hover {
+      transform: scale(1.2);
+    }
+
+    /* Input Group */
+    .input-group {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .input-group label {
+      font-weight: 600;
+      color: var(--kawaii-color-text);
+      min-width: 100px;
+    }
+
+    .input-group input,
+    .input-group select {
+      flex: 1;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--kawaii-color-border);
+      border-radius: var(--kawaii-deco-border-radius);
+      font-family: var(--kawaii-font-family);
+      font-size: 1rem;
+      background: var(--kawaii-color-surface);
+      color: var(--kawaii-color-text);
+      transition: all 0.2s;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus {
+      outline: none;
+      border-color: var(--kawaii-color-primary);
+      box-shadow: 0 0 0 3px var(--kawaii-color-shadow);
+    }
+
+    /* CSS Export */
+    .css-export {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      padding: 1.5rem;
+      border-radius: var(--kawaii-deco-border-radius);
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    /* Emoji decoration */
+    .emoji-deco {
+      font-size: 1.5rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .btn-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .preview-section {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>✨ Kawaii AI Theme Engine ✨</h1>
+      <p>基于随机化的可爱风格主题生成器</p>
+      <span class="emoji-deco">🌸</span>
+    </header>
+
+    <!-- Control Panel -->
+    <section class="control-panel">
+      <h2>🎨 主题控制面板</h2>
+
+      <div class="btn-group">
+        <button class="btn btn-primary" id="btn-random">
+          🎲 随机生成主题
+        </button>
+        <button class="btn btn-secondary" id="btn-classic">
+          🌸 经典可爱风格
+        </button>
+        <button class="btn btn-secondary" id="btn-custom">
+          🎭 自定义混合
+        </button>
+        <button class="btn btn-secondary" id="btn-export">
+          📋 导出 CSS
+        </button>
+      </div>
+
+      <div class="input-group">
+        <label>🎨 基础色值:</label>
+        <input type="color" id="input-color" value="#ff69b4">
+        <button class="btn btn-primary" id="btn-from-color">应用颜色</button>
+      </div>
+
+      <div class="input-group">
+        <label>🌱 随机种子:</label>
+        <input type="text" id="input-seed" placeholder="留空则随机">
+        <button class="btn btn-secondary" id="btn-with-seed">使用种子</button>
+      </div>
+    </section>
+
+    <!-- Preview Section -->
+    <section class="preview-section">
+      <div class="card">
+        <h3>🎨 当前配色方案</h3>
+        <div class="color-palette" id="color-palette"></div>
+        <p id="theme-info" style="margin-top: 1rem;">点击上方按钮生成主题</p>
+      </div>
+
+      <div class="card">
+        <h3>✨ 装饰效果预览</h3>
+        <p>这是预览卡片，展示当前主题的边框、阴影和动画效果。</p>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <span class="emoji-deco">💖</span>
+          <span class="emoji-deco" style="animation-delay: 0.5s;">🌟</span>
+          <span class="emoji-deco" style="animation-delay: 1s;">🎀</span>
+          <span class="emoji-deco" style="animation-delay: 1.5s;">🦋</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>📝 排版效果</h3>
+        <h4 style="font-family: var(--kawaii-font-heading-family); color: var(--kawaii-color-secondary); margin-bottom: 0.5rem;">
+          这是标题字体
+        </h4>
+        <p style="font-family: var(--kawaii-font-family); color: var(--kawaii-color-text-secondary);">
+          这是正文字体。Kawaii AI Theme Engine 会随机选择可爱的字体组合，让你的页面充满活力！
+        </p>
+      </div>
+    </section>
+
+    <!-- CSS Export Section -->
+    <section class="control-panel" id="export-section" style="display: none;">
+      <h2>📋 导出的 CSS 变量</h2>
+      <pre class="css-export" id="css-export"></pre>
+      <button class="btn btn-secondary" id="btn-copy" style="margin-top: 1rem;">
+        📋 复制到剪贴板
+      </button>
+    </section>
+  </div>
+
+  <!-- Load the engine as ES modules -->
+  <script type="module">
+    import { KawaiiEngine } from './core/kawaii-engine.js';
+    import { classicKawaii } from './plugins/classic-kawaii.js';
+    import { customBlend, fromHex } from './plugins/custom-blend.js';
+
+    // Initialize the engine
+    const engine = new KawaiiEngine();
+
+    // Register plugins
+    engine.registerPreset('classic', classicKawaii);
+    engine.registerPreset('custom', (rng) => customBlend(rng));
+
+    // DOM elements
+    const btnRandom = document.getElementById('btn-random');
+    const btnClassic = document.getElementById('btn-classic');
+    const btnCustom = document.getElementById('btn-custom');
+    const btnExport = document.getElementById('btn-export');
+    const btnFromColor = document.getElementById('btn-from-color');
+    const btnWithSeed = document.getElementById('btn-with-seed');
+    const btnCopy = document.getElementById('btn-copy');
+    const inputColor = document.getElementById('input-color');
+    const inputSeed = document.getElementById('input-seed');
+    const colorPalette = document.getElementById('color-palette');
+    const themeInfo = document.getElementById('theme-info');
+    const exportSection = document.getElementById('export-section');
+    const cssExport = document.getElementById('css-export');
+
+    // Update the color palette display
+    function updatePalette(config) {
+      if (!config?.colors) return;
+
+      colorPalette.innerHTML = '';
+      Object.entries(config.colors).forEach(([name, color]) => {
+        const swatch = document.createElement('div');
+        swatch.className = 'color-swatch';
+        swatch.style.backgroundColor = color;
+        swatch.title = `${name}: ${color}`;
+        colorPalette.appendChild(swatch);
+      });
+
+      // Update theme info
+      const meta = config.meta || {};
+      themeInfo.textContent = `风格: ${meta.style || 'random'} | 暗色模式: ${meta.darkMode ? '是' : '否'} | 基础色相: ${meta.baseHue || 'random'}°`;
+    }
+
+    // Random theme
+    btnRandom.addEventListener('click', () => {
+      const config = engine.randomize();
+      updatePalette(config);
+      exportSection.style.display = 'none';
+    });
+
+    // Classic kawaii
+    btnClassic.addEventListener('click', () => {
+      engine.applyPreset('classic');
+      updatePalette(engine.getCurrentTheme());
+      exportSection.style.display = 'none';
+    });
+
+    // Custom blend
+    btnCustom.addEventListener('click', () => {
+      engine.applyPreset('custom');
+      updatePalette(engine.getCurrentTheme());
+      exportSection.style.display = 'none';
+    });
+
+    // From color
+    btnFromColor.addEventListener('click', () => {
+      const hex = inputColor.value;
+      const config = fromHex(engine.rng, hex);
+      engine.applyTheme(config);
+      updatePalette(config);
+      exportSection.style.display = 'none';
+    });
+
+    // With seed
+    btnWithSeed.addEventListener('click', () => {
+      const seed = inputSeed.value || Math.random().toString();
+      engine.rng = new (Object.getPrototypeOf(engine.rng).constructor)(seed);
+      const config = engine.randomize();
+      updatePalette(config);
+      exportSection.style.display = 'none';
+    });
+
+    // Export CSS
+    btnExport.addEventListener('click', () => {
+      const css = engine.exportCSS();
+      cssExport.textContent = css;
+      exportSection.style.display = 'block';
+      exportSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Copy to clipboard
+    btnCopy.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(cssExport.textContent);
+        btnCopy.textContent = '✅ 已复制!';
+        setTimeout(() => {
+          btnCopy.textContent = '📋 复制到剪贴板';
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy:', err);
+      }
+    });
+
+    // Initial theme
+    const initialConfig = engine.randomize();
+    updatePalette(initialConfig);
+  </script>
+</body>
+</html>
