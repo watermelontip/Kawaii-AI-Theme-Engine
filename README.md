@@ -1,5 +1,15 @@
 # ✨ Kawaii AI Theme Engine
 
+<p align="center">
+  <img src="demo-preview.png" alt="Kawaii AI Theme Engine Preview" width="800">
+</p>
+
+<p align="center">
+  <strong>🎮 在线体验：<a href="https://watermelontip.github.io/Kawaii-AI-Theme-Engine/">watermelontip.github.io/Kawaii-AI-Theme-Engine</a></strong>
+</p>
+
+---
+
 一个基于随机化的 AI 卡哇伊风格页面主题美化引擎。每次运行都会生成独一无二的可爱风格主题！
 
 ## 🌟 特性
@@ -31,11 +41,15 @@ Kawaii-AI-Theme-Engine/
 
 ## 🚀 快速开始
 
-### 方式一：直接打开
+### 方式一：在线体验
+
+直接访问 👉 **https://watermelontip.github.io/Kawaii-AI-Theme-Engine/**
+
+### 方式二：本地运行
 
 ```bash
 # 克隆项目
-git clone <your-repo-url>
+git clone https://github.com/watermelontip/Kawaii-AI-Theme-Engine.git
 cd Kawaii-AI-Theme-Engine
 
 # 直接在浏览器中打开 index.html
@@ -43,7 +57,7 @@ cd Kawaii-AI-Theme-Engine
 npx serve .
 ```
 
-### 方式二：作为模块使用
+### 方式三：作为模块使用
 
 ```javascript
 import { KawaiiEngine } from './core/kawaii-engine.js';
